@@ -6,7 +6,9 @@ import javax.swing.*;
 public class TypingPractice {
     JFrame mainFrame;    
     JButton sentences, stories, game, setting;
-    JPanel mainPanel, cardPanel, menuPanel;
+    JPanel mainPanel;
+	JPanel cardPanel;
+	JPanel menuPanel;
     JLabel pageTitle;
     CardLayout cardLayout;
 
@@ -92,4 +94,6 @@ public class TypingPractice {
         mainPanel.add(pageTitle);
         mainPanel.add(menuPanel);
     }
+    
+
 }

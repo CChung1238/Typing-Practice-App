@@ -7,26 +7,22 @@ A chain is only as strong as its weakest link
 A dog is a man's best friend
 A drowning man will clutch at a straw
 A fool and his money are soon parted
-A friend in need (is a friend indeed)
+A friend in need is a friend indeed
 A friend to everyone is a friend to no one
-A journey of a thousand miles begins with a single step
 A little learning is a dangerous thing
 A leopard cannot change its spots
-A man can do what he wills but he cannot will what he wills
 A mill cannot grind with the water that is past
 A miss is as good as a mile
-A new language is a new life (Persian proverb)
+A new language is a new life
 A penny saved is a penny earned
 A picture is worth a thousand words
 A rising tide lifts all boats
 A rolling stone gathers no moss
-A ship in a harbour is safe, but that's not what a ship is for
 A stitch in time saves nine
 A watched man never plays
 A watched pot/kettle never boils
 Absence makes the heart grow fonder
-Absolute power corrupts absolutely 
-Accidents will happen in the best-regulated families
+Absolute power corrupts absolutely
 Actions speak louder than words
 Adversity makes strange bedfellows
 All good things come to him who waits
@@ -41,12 +37,11 @@ All things must pass
 All work and no play makes Jack a dull boy
 All you need is love
 All is fair in love and war
-All is for the best in the best of all possible worlds
 All is well that ends well
 An apple a day keeps the doctor away
 An army marches on its stomach
 An eye for an eye, a tooth for a tooth
-An eye for an eye makes the whole world blind 
+An eye for an eye makes the whole world blind
 An Englishman's home is his castle
 A man's home is his castle
 Another day, another dollar
@@ -59,7 +54,6 @@ As a tree bends, so shall it grow
 As the twig is bent, so is the tree inclined
 As you make your bed, so you must lie upon it
 As you sow so shall you reap
-Ask a silly question and you will get a silly answer
 Ask my companion if I be a thief
 Ask no questions and hear no lies
 Attack is the best form of defense
@@ -74,13 +68,10 @@ Better late than never
 Better safe than sorry
 Better to reign in hell than serve in heaven
 Be yourself
-Better the Devil you know (than the Devil you do not)
-Better to have loved and lost than never to have loved at all
-Better to light one candle than to curse the darkness
 Better wear out than rust out
 Beware of Greeks bearing gifts
 Big fish eat little fish
-Birds of a feather (flock together)
+Birds of a feather flock together
 Blood is thicker than water
 Born with a silver spoon in one's mouth
 Boys will be boys
@@ -90,13 +81,13 @@ Caesar's wife must be above suspicion
 Careless talk costs lives
 Charity begins at home
 Cheats never prosper
-Cheese, wine, and friends must be old to be good.
+Cheese, wine, and friends must be old to be good
 Children should be seen and not heard
 Christmas comes but once a year
 Cleanliness is next to godliness
 Clothes don't make the man
 Clothes make the man
-Coffee and love taste best when hot. Ethiopian proverb
+Coffee and love taste best when hot
 Cold hands, warm heart
 Comparisons are odious
 Count your blessings
@@ -125,7 +116,6 @@ Even from a foe a man may learn wisdom
 Enough is as good as a feast
 Every tide has its ebb
 Everyone has their price
-Everybody wants to go to heaven but nobody wants to die
 Failing to plan is planning to fail
 Free is for me
 From the sublime to the ridiculous is only a step
@@ -164,12 +154,10 @@ Honesty is the best policy
 Hope for the best, and prepare for the worst
 Hope springs eternal
 Horses for courses
-Hunger never knows the taste, sleep never knows the comfort
 Idle hands are the devil's playthings
 If anything can go wrong, it will
 If a job is worth doing, it is worth doing well
 If at first you do not succeed, try, try again
-If God had meant us to fly, he would have given us wings
 If it ain't broke, don't fix it
 If it were not for hope the heart would break
 If it were a snake, it would have bit you
@@ -193,7 +181,6 @@ Kill two birds with one stone
 A language is a dialect with an army and navy
 The last drop makes the cup run over
 Laugh before breakfast, cry before supper
-Laugh and the world laughs with you, weep and you weep alone
 Laughter is the best medicine
 Late lunch makes day go faster
 Learn a language, and you will avoid a war
@@ -214,18 +201,15 @@ Many a little makes a mickle
 Many a mickle makes a muckle
 Many a true word is spoken in jest
 Many hands make light work
-March comes in like a lion and goes out like a lamb
 Marriages are made in heaven
 Money does not grow on trees
 Oil and water do not mix
 Once bitten, twice shy
 One good turn deserves another
 Once the poison, twice the charm
-One half of the world does not know how the other half lives
 One hand washes the other
 One kind word can warm three winter months
 One man's meat is another man's poison
-One man’s terrorist is another man’s freedom fighter
 One man's trash is another man's treasure
 One might as well be hanged for a sheep as a lamb
 One law for the rich and another for the poor
@@ -257,7 +241,6 @@ Speech is silver but silence is golden
 Sit crooked and talk straight
 Slow and steady wins the race
 Talk of the Devil, and he is bound to appear
-The apple does not fall/never falls far from the tree
 The best condiments are authentic flavors
 The customer is always right
 The darkest hour is just before the dawn
@@ -268,7 +251,6 @@ The early bird catches the worm
 The end justifies the means
 The enemy of my enemy is my friend
 The exception which proves the rule
-The female of the species is more deadly than the male
 The good die young
 The grass is always greener on the other side
 The hand that rocks the cradle rules the world
@@ -277,7 +259,6 @@ There but for the grace of God go I
 There is an exception to every rule
 There are always more fish in the sea
 There is honour among thieves
-There is many a good tune played on an old fiddle
 There is many a slip 'twixt cup and lip
 There is more than one way to skin a cat
 There is no accounting for tastes
@@ -289,4 +270,3 @@ There is no smoke without fire
 Where there is smoke, there is fire
 What does not kill me makes me stronger
 You cannot make an omelette without breaking eggs
-You cannot run with the hare and hunt with the hounds
