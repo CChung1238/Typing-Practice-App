@@ -11,21 +11,42 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class SentencePractice {
-    JPanel stcPanel;
-    JPanel practiceZone;
-    JPanel resultPanel;
-    JLabel givenStc;    
+	
+	double second = 0.0;
+	double crtWPM = 0.0;
+	double fastestWPM = 0.0;
+	int percentPcs = 100;
+	
+	Timer timer = new Timer(100, new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			second += 0.1;
+		}
+	});
+	
+    JPanel stcPanel, practiceZone, resultPanel;
+    JLabel givenStc, showTypo, pageTitle;
     JTextField myStc;
-    JLabel showTypo;
-    JLabel pageTitle;
     JButton exitBtn;
     String[] sampleStc;
     
     JLabel crtSpd, precisie, prevSpd, fastSpd;
     JLabel crtSpd_disp, precisie_disp, prevSpd_disp, fastSpd_disp;
 
-    public SentencePractice() {
-        // Initialize components
+    private TypingPractice typingPractice;
+
+    public SentencePractice(TypingPractice typingPractice) {
+    	this.typingPractice = typingPractice; 
+    	initSentencePage();
+        collectStc();
+        giveStc();
+    }
+
+    public JPanel getPanel() {
+        return stcPanel;
+    }
+    
+    public void initSentencePage() {
         stcPanel = new JPanel();
         stcPanel.setLayout(null);
         stcPanel.setBackground(Color.black);
@@ -47,7 +68,13 @@ public class SentencePractice {
         exitBtn.setForeground(Color.white);
         exitBtn.setBorder(BorderFactory.createLineBorder(Color.white, 2));
         exitBtn.setFocusable(false);
-        exitBtn.addActionListener(null);
+        exitBtn.addActionListener(new ActionListener() {        	
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	giveStc();
+                typingPractice.showMainMenu();
+            }
+        });
         
         practiceZone = new JPanel();
         practiceZone.setBounds(100, 200, 896, 320);
@@ -93,10 +120,11 @@ public class SentencePractice {
         
         crtSpd = new JLabel("Current Speed");
         precisie = new JLabel("Current Precisie");
+        
         prevSpd = new JLabel("Previous Speed");        
         fastSpd = new JLabel("Fastest Speed");
         crtSpd_disp = new JLabel("0 wpm");
-        precisie_disp = new JLabel("0 wpm");        
+        precisie_disp = new JLabel("100 %");        
         prevSpd_disp = new JLabel("0 wpm");
         fastSpd_disp = new JLabel("0 wpm");
         
@@ -142,16 +170,8 @@ public class SentencePractice {
         
         //stcPanel.setVisible(true);
         myStc.setFocusable(true);
-        
-        collectStc();
-        giveStc();
-        startPractice();
-        	
     }
-
-    public JPanel getPanel() {
-        return stcPanel;
-    }
+    
 
     public void collectStc() {
         List<String> lines = new ArrayList<>();
@@ -173,42 +193,101 @@ public class SentencePractice {
         int numOfSentence = sampleStc.length;
         Random rand = new Random();
         int randomIndex = rand.nextInt(numOfSentence);
+        
+        myStc.setText("");
+		showTypo.setText("");        
         givenStc.setText(sampleStc[randomIndex]);
+        
+        startPractice();
     }
 
     public void compareText() {
     	
         String givenText = givenStc.getText();
         String typedText = myStc.getText();
+        double typo = 0.0;
+        double precisie;
         
         StringBuilder typoBuilder = new StringBuilder();     
                     
         for (int i = 0; i < typedText.length(); i++) {
-            if (i < givenText.length()) {
-                if (typedText.charAt(i) != givenText.charAt(i)) {
+        	if (i < givenText.length()) {
+                if (typedText.charAt(i) != givenText.charAt(i)) {                	
                     typoBuilder.append("▼");
+                    typo++;
                 } else {
                     typoBuilder.append(" ");
                 }
-            }
-
+        	} else {
+        		typoBuilder.append("▼");
+        		typo++;
+        	}
         }
+         
+        precisie =  ( typo / givenText.length() ) * 100;
+        percentPcs = (int) (100 - (precisie));
+        if (percentPcs < 0) {
+        	percentPcs = 0;
+        }
+        
+        precisie_disp.setText(percentPcs + " %");
         showTypo.setText(typoBuilder.toString());
+        
+        
+    }
+    
+    public void speedCalc(double second) { 
+        String typedText = myStc.getText();
+        
+    	crtWPM =  ((double) typedText.length() / 5) / ( second / 60);    	
+    	crtSpd_disp.setText((int)crtWPM + " WPM");      
+    }
+    
+    public void dispSpd() {
+    	
+    	if (crtWPM > fastestWPM) {
+    		fastestWPM = crtWPM;
+    	}
+    	
+    	prevSpd_disp.setText(String.valueOf((int) crtWPM) + " WPM");
+    	fastSpd_disp.setText(String.valueOf((int) fastestWPM) + " WPM");
+    	crtSpd_disp.setText("0 WPM");
     }
     
     public void startPractice() {
-    	myStc.addKeyListener(new KeyAdapter() {
-           	@Override
+        myStc.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyReleased(KeyEvent e) {
-            compareText();
-            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                if (myStc.getText().equals(givenStc.getText())) {
-                    myStc.setText("");
-                    giveStc();
+                String givenText = givenStc.getText();
+                String typedText = myStc.getText();
+                
+                if (typedText.length() == 1) {
+                    second=0.0;
+                	timer.start();
+                }
+
+                if (typedText.equals(givenText)) {
+                	myStc.setEditable(false);
+                	myStc.removeKeyListener(this);
+                	timer.stop();
+                	
+                	Timer pause = new Timer(200, new ActionListener() {
+                		@Override
+                		public void actionPerformed(ActionEvent e) {
+                            giveStc();
+                            dispSpd();
+                            myStc.setEditable(true);
+                		}
+                	});
+                	pause.setRepeats(false);
+                	pause.start();
+                	
+                } else {
+                	speedCalc(second);
+                	compareText();
                 }
             }
-        }
-    		
-    	});
+        });
     }
+
 }

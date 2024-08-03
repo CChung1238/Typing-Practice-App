@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class TypingPractice {
     JFrame mainFrame;    
-    JButton sentences, stories, game, setting;
+    JButton sentences, stories, game, guide;
     JPanel mainPanel;
 	JPanel cardPanel;
 	JPanel menuPanel;
@@ -31,8 +31,8 @@ public class TypingPractice {
         
         // Add panels to card panel
         cardPanel.add(mainPanel, "MainMenu");
-        cardPanel.add(new SentencePractice().getPanel(), "SentencePractice");
-        //cardPanel.add(new StoryPractice().getPanel(), "StoryPractice");
+        cardPanel.add(new SentencePractice(this).getPanel(), "SentencePractice");
+        cardPanel.add(new StoryPractice(this).getPanel(), "StoryPractice");
         //cardPanel.add(new GamePractice().getPanel(), "GamePractice");
 
         // Add card panel to frame
@@ -44,9 +44,9 @@ public class TypingPractice {
         sentences = new JButton("SENTENCES");
         stories = new JButton("STORIES");
         game = new JButton("GAME");
-        setting = new JButton("SETTING");
+        guide = new JButton("GUIDE");
 
-        JButton[] functionButtons = { sentences, stories, game, setting };
+        JButton[] functionButtons = { sentences, stories, game, guide };
         
         for (JButton button : functionButtons) {
             button.setFont(new Font("Lucida Console", Font.PLAIN, 20));
@@ -62,8 +62,8 @@ public class TypingPractice {
                         cardLayout.show(cardPanel, "StoryPractice");
                     } else if (e.getSource() == game) {
                         cardLayout.show(cardPanel, "GamePractice");
-                    } else if (e.getSource() == setting) {
-                        // Settings panel can be implemented similarly
+                    } else if (e.getSource() == guide) {
+                        // guides panel can be implemented similarly
                     }
                 }
             });
@@ -89,10 +89,15 @@ public class TypingPractice {
         menuPanel.add(sentences);
         menuPanel.add(stories);
         menuPanel.add(game);
-        menuPanel.add(setting);
+        menuPanel.add(guide);
         
         mainPanel.add(pageTitle);
         mainPanel.add(menuPanel);
+    }
+    
+
+    public void showMainMenu() {
+        cardLayout.show(cardPanel, "MainMenu");
     }
     
 
