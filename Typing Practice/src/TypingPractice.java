@@ -58,6 +58,7 @@ public class TypingPractice {
                 public void actionPerformed(ActionEvent e) {
                     if (e.getSource() == sentences) {
                         cardLayout.show(cardPanel, "SentencePractice");
+                        SentencePractice.myStc.requestFocusInWindow();
                     } else if (e.getSource() == stories) {
                         cardLayout.show(cardPanel, "StoryPractice");
                     } else if (e.getSource() == game) {

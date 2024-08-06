@@ -26,7 +26,7 @@ public class SentencePractice {
 	
     JPanel stcPanel, practiceZone, resultPanel;
     JLabel givenStc, showTypo, pageTitle;
-    JTextField myStc;
+    static JTextField myStc;
     JButton exitBtn;
     String[] sampleStc;
     
@@ -40,6 +40,7 @@ public class SentencePractice {
     	initSentencePage();
         collectStc();
         giveStc();
+        myStc.requestFocusInWindow();
     }
 
     public JPanel getPanel() {
@@ -98,6 +99,7 @@ public class SentencePractice {
         myStc.setForeground(Color.gray);
         myStc.setFont(new Font("Lucida Console", Font.PLAIN, 30));
         myStc.setBorder(new MatteBorder(0,0,0,2, Color.white));
+        myStc.setCaretColor(Color.red);
         myStc.setFocusable(true);
         
         showTypo = new JLabel();
@@ -241,7 +243,7 @@ public class SentencePractice {
         String typedText = myStc.getText();
         
     	crtWPM =  ((double) typedText.length() / 5) / ( second / 60);    	
-    	crtSpd_disp.setText((int)crtWPM + " WPM");      
+    	crtSpd_disp.setText((int)crtWPM + " wpm");      
     }
     
     public void dispSpd() {
@@ -250,9 +252,9 @@ public class SentencePractice {
     		fastestWPM = crtWPM;
     	}
     	
-    	prevSpd_disp.setText(String.valueOf((int) crtWPM) + " WPM");
-    	fastSpd_disp.setText(String.valueOf((int) fastestWPM) + " WPM");
-    	crtSpd_disp.setText("0 WPM");
+    	prevSpd_disp.setText(String.valueOf((int) crtWPM) + " wpm");
+    	fastSpd_disp.setText(String.valueOf((int) fastestWPM) + " wpm");
+    	crtSpd_disp.setText("0 wpm");
     }
     
     public void startPractice() {

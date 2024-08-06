@@ -70,7 +70,6 @@ public class StoryPractice {
 		initmainPanel();
 		initStorySelectPanel();
 		initPracticeZone();
-
 	}
 	
 	public JPanel getPanel() {
@@ -140,6 +139,13 @@ public class StoryPractice {
                     	pageTitle.setText("The Golden Goose");
                     }
                     startPracticing(option);
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                        	user1.setEditable(true);
+                        	user1.setFocusable(true);
+                            user1.requestFocus();
+                        }
+                    });
                     storySelect.setVisible(false);
                     storyPanel.setVisible(true);
             	}
@@ -221,10 +227,10 @@ public class StoryPractice {
         	user.setForeground(Color.gray);
         	user.setFont(new Font("Lucida Console", Font.PLAIN, 20));
         	user.setBorder(BorderFactory.createEmptyBorder());
-        	user.setFocusable(true);
+        	user.setCaretColor(Color.red);
+        	user.setFocusable(false);
+        	user.setEditable(false);
         }
-        
-
 
         displayZone.add(given1);
         displayZone.add(user1);
@@ -253,7 +259,10 @@ public class StoryPractice {
             public void actionPerformed(ActionEvent e) {
             	storySelect.setVisible(true);
             	storyPanel.setVisible(false);
-                
+            	pageTitle.setText("Stroy Practice");
+            	for (JTextField user : userSentences) {
+                	user.setText("");
+                }
             }
         });
         
@@ -322,6 +331,8 @@ public class StoryPractice {
 	
 	private void startPracticing(int option) {
 		displayStory = collectStory(storyLocation[option]);
+		
+		
 	    given1.setText(displayStory[0]);
 	    given2.setText(displayStory[1]);
 	    given3.setText(displayStory[2]);
@@ -361,80 +372,126 @@ public class StoryPractice {
 
 	
 	private void practicing() {
-		
 		user1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (user1.getText().equals(given1.getText())) {
+					user1.setEditable(false);
+				}
+			}
+			
         	@Override
         	public void keyReleased(KeyEvent e) {
-        		compareText(1);
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                	if (user1.getText().equals(given1.getText())) {
-                		user1.setEditable(false);
-                		user2.setEditable(true);
-                		user2.requestFocus();         		
-                	}
-                }
+        		
 
+        		if (user1.getText().length() == 1) {
+        			second = 0.0;
+        			timer.start();
+        		}
+        		
+        		if (user1.getText().equals(given1.getText())) {
+					if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    	user2.setEditable(true);
+                    	user2.setFocusable(true);
+                		user2.requestFocus();  
+                    }
+        		} else {
+        			compareText(1);
+            		speedCalc(second);
+        		}
         	}
         }); 
 		
 	    user2.addKeyListener(new KeyAdapter() {
+	    	@Override
+			public void keyPressed(KeyEvent e) {
+				if (user2.getText().equals(given2.getText())) {
+					user2.setEditable(false);
+				}
+			}
+	    	
         	@Override
         	public void keyReleased(KeyEvent e) {
-        		compareText(2);
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                	if (user2.getText().equals(given2.getText())) {
-                		user2.setEditable(false);
-                		user3.setEditable(true);
-                		user3.requestFocus();         		
-                	}
-                }
-
+        		
+        		if (user2.getText().equals(given2.getText())) {
+					if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) {	
+                    	user3.setEditable(true);
+                    	user3.setFocusable(true);
+                		user3.requestFocus();  
+                    }
+        		} else {
+        			compareText(2);
+            		speedCalc(second);
+        		}
         	}
         }); 
 	    
 	    user3.addKeyListener(new KeyAdapter() {
+	    	@Override
+			public void keyPressed(KeyEvent e) {
+				if (user3.getText().equals(given3.getText())) {
+					user3.setEditable(false);
+				}
+			}
         	@Override
         	public void keyReleased(KeyEvent e) {
-        		compareText(3);
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                	if (user3.getText().equals(given3.getText())) {
-                		user3.setEditable(false);
-                		user4.setEditable(true);
-                		user4.requestFocus();         		
-                	}
-                }
-
+        		if (user3.getText().equals(given3.getText())) {
+					if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    	user4.setEditable(true);
+                    	user4.setFocusable(true);
+                		user4.requestFocus();  
+                    } 
+        		} else {
+        			compareText(3);
+            		speedCalc(second);
+        		}
         	}
         }); 
 	    
 	    user4.addKeyListener(new KeyAdapter() {
+	    	@Override
+			public void keyPressed(KeyEvent e) {
+				if (user4.getText().equals(given4.getText())) {
+					user4.setEditable(false);
+				}
+			}
         	@Override
         	public void keyReleased(KeyEvent e) {
-        		compareText(4);
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                	if (user4.getText().equals(given4.getText())) {
-                		user4.setEditable(false);
-                		user5.setEditable(true);
-                		user5.requestFocus();         		
-                	}
-                }
-
+        		if (user4.getText().equals(given4.getText())) {
+        			if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) {
+        				user5.setEditable(true);
+        				user5.setFocusable(true);
+                		user5.requestFocus(); 
+                    }  
+        		} else {
+        			compareText(4);
+            		speedCalc(second);
+        		}
         	}
         }); 
 	    
 	    user5.addKeyListener(new KeyAdapter() {
+	    	@Override
+			public void keyPressed(KeyEvent e) {
+				if (user5.getText().equals(given5.getText())) {
+					user5.setEditable(false);
+				}
+			}
         	@Override
         	public void keyReleased(KeyEvent e) {
-        		compareText(5);
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                	if (user5.getText().equals(given5.getText())) {
-                		user5.setEditable(false);
-                		user1.setEditable(true);
-                		user1.requestFocus();    
+        		
+        		if (user5.getText().equals(given5.getText())) {
+        			if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    	user1.setEditable(true);
+                		user1.requestFocus();  
+                		timer.stop();
                 		displayResult();
-                	}
-                }
-
+                    }
+ 
+        		} else {
+        			compareText(5);
+            		speedCalc(second);
+        		}
         	}
         }); 
 	}
@@ -463,10 +520,57 @@ public class StoryPractice {
     }
     
     private void displayResult() {
-    	JOptionPane.showMessageDialog(null, "Keep working!");
-    	loadNextSet();
+    	
+    	StringBuilder resultBuilder = new StringBuilder();
+    	int keepPractice;
+    	
+    	if (crtWPM > fastestWPM) {
+    		fastestWPM = crtWPM;
+    	}
+    	
+    	prevSpd_disp.setText(String.valueOf((int) crtWPM) + " WPM");
+    	fastSpd_disp.setText(String.valueOf((int) fastestWPM) + " WPM");
+    	
+    	resultBuilder.append("Current typing speed : ");
+    	resultBuilder.append(String.valueOf(((int) crtWPM))).append(" wpm\n");
+    	resultBuilder.append("Current precisie : ");
+    	resultBuilder.append(String.valueOf(percentPcs)).append("%\n");
+    	resultBuilder.append("Average typing speed : ");
+    	resultBuilder.append("\n\n");
+    	resultBuilder.append("Do you want to continue?");
+    	
+    	keepPractice = JOptionPane.showConfirmDialog(null, resultBuilder.toString(), "Confirm", JOptionPane.YES_NO_OPTION);
+    	
+    	if (keepPractice == JOptionPane.NO_OPTION) {
+    		storySelect.setVisible(true);
+        	storyPanel.setVisible(false);
+        	pageTitle.setText("Stroy Practice");
+        	for (JTextField user : userSentences) {
+            	user.setText("");
+            }
+        } else {
+        	loadNextSet();
+        }
+    	
+    	
     }
-	
+    
+    private void speedCalc(double second) {
+    	int textLength = 0;
+    	
+    	textLength = user1.getText().length() 
+    				+ user2.getText().length() 
+    				+ user3.getText().length()
+    				+ user4.getText().length()
+    				+ user5.getText().length();
+    	
+    	crtWPM = ((double) textLength / 5) / (second / 60);
+    	if (crtWPM > 500) {
+    		crtWPM = 500;
+    	}
+    	crtSpd_disp.setText((int)crtWPM + " wpm"); 
+    }
+    
 	
 	private void loadNextSet() {
 		int currentIndex = Arrays.asList(displayStory).indexOf(given1.getText());
@@ -478,7 +582,6 @@ public class StoryPractice {
 	        given4.setText(displayStory[currentIndex + 8]);
 	        given5.setText(displayStory[currentIndex + 9]);
 	    } else {
-	        // if story ends, the practice ends
 	        JOptionPane.showMessageDialog(null, "You have completed the practice!");
 	        typingPractice.showMainMenu();
 	    }
