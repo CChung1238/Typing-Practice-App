@@ -82,8 +82,7 @@ public class SentencePractice {
         practiceZone.setLayout(null);
         practiceZone.setBackground(Color.black);
         practiceZone.setForeground(Color.white);
-        practiceZone.setBorder(BorderFactory.createLineBorder(Color.white, 
-        		2));
+        practiceZone.setBorder(BorderFactory.createLineBorder(Color.white, 2));
 
         givenStc = new JLabel();
         givenStc.setBounds(10,80,886,80);
