@@ -72,7 +72,10 @@ public class SentencePractice {
         exitBtn.addActionListener(new ActionListener() {        	
             @Override
             public void actionPerformed(ActionEvent e) {
+            	fastestWPM = 0.0;
+            	crtWPM = 0.0;
             	giveStc();
+            	dispSpd();
                 typingPractice.showMainMenu();
             }
         });
@@ -175,7 +178,7 @@ public class SentencePractice {
     }
     
 
-    public void collectStc() {
+    private void collectStc() {
         List<String> lines = new ArrayList<>();
         
         try {
@@ -191,7 +194,7 @@ public class SentencePractice {
         sampleStc = lines.toArray(new String[0]);
     }
 
-    public void giveStc() {
+    private void giveStc() {
         int numOfSentence = sampleStc.length;
         Random rand = new Random();
         int randomIndex = rand.nextInt(numOfSentence);
@@ -203,7 +206,7 @@ public class SentencePractice {
         startPractice();
     }
 
-    public void compareText() {
+    private void compareText() {
     	
         String givenText = givenStc.getText();
         String typedText = myStc.getText();
@@ -238,14 +241,14 @@ public class SentencePractice {
         
     }
     
-    public void speedCalc(double second) { 
+    private void speedCalc(double second) { 
         String typedText = myStc.getText();
         
     	crtWPM =  ((double) typedText.length() / 5) / ( second / 60);    	
     	crtSpd_disp.setText((int)crtWPM + " wpm");      
     }
     
-    public void dispSpd() {
+    private void dispSpd() {
     	
     	if (crtWPM > fastestWPM) {
     		fastestWPM = crtWPM;
@@ -256,7 +259,7 @@ public class SentencePractice {
     	crtSpd_disp.setText("0 wpm");
     }
     
-    public void startPractice() {
+    private void startPractice() {
         myStc.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {

@@ -166,6 +166,9 @@ public class StoryPractice {
         returnMainMenu.addActionListener(new ActionListener() {        	
             @Override
             public void actionPerformed(ActionEvent e) {
+            	crtWPM = 0.0;
+            	fastestWPM = 0.0;
+            	clearExResult();
                 typingPractice.showMainMenu();
                 storySelect.setVisible(true);
                 storyPanel.setVisible(false);
@@ -266,6 +269,9 @@ public class StoryPractice {
             	for (JTextField user : userSentences) {
                 	user.setText("");
                 }
+            	crtWPM = 0.0;
+            	fastestWPM = 0.0;
+            	clearExResult();
             }
         });
         
@@ -641,6 +647,13 @@ public class StoryPractice {
 	    precisie_disp.setText("100 %");
 	    
 	    practicing();
+	}
+	
+	private void clearExResult() {
+		fastSpd_disp.setText("0 wpm");
+		prevSpd_disp.setText("0 wpm");
+		crtSpd_disp.setText("0 wpm"); 
+		precisie_disp.setText("100 %");
 	}
 
 }

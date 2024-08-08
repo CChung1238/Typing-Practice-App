@@ -59,10 +59,11 @@ public class About {
         explanation.setBorder(BorderFactory.createLineBorder(Color.white, 2));
         explanation.setLayout(new BoxLayout(explanation, BoxLayout.Y_AXIS));
         
-        JPanel section1 = createSection(" # How fast people type generally", "  Elementary school (Grades 3–5): 8–15 WPM\n"
-                + "  Middle school (Grades 6–8): 12–25 WPM\n"
-                + "  High school (Grades 9–12): 20–35 WPM\n"
-                + "  College/Adult: 50 WPM\n");
+        JPanel section1 = createSection(" # How fast people type generally", 
+        		 						"  Elementary school (Grades 3–5) : 8–15 WPM\n"
+        							  + "  Middle school (Grades 6–8)     : 12–25 WPM\n"
+        							  + "  High school (Grades 9–12)      : 20–35 WPM\n"
+        							  + "  College/Adult                  : 50 WPM\n");
         
         JPanel section2 = createSection(" # How to measure typing speed?", "  Typing speed is measured by the number of words you can type correctly in a set amount of time.\n"
                 + "  A “word” is equivalent to five keystrokes. In this program, use the formula:\n"
