@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Online Typing Practice</title>
+        <style>
+            @import url(selectMenu.css);
+        </style>
+
+        <script>
+            function goToSentencePage() {
+                window.location.href = "sentence_page.html";
+            }
+
+            function goToStoryPage() {
+                window.location.href = "story_page.html";
+            }
+            
+            function goToGamePage() {
+                window.location.href = "game_page.html";
+            }
+
+        </script>
+    </head>
+    
+    <body>
+        <div class="pageTitle">Online Typing Practice</div>
+        <div class="wrapper">
+            <div class="menuContainer">
+                <input type="button" class="menuBtn" value="SENTENCES" onclick="goToSentencePage()">
+                <input type="button" class="menuBtn" value="STORIES" onclick="goToStoryPage()">
+                <input type="button" class="menuBtn" value="GAME" onclick="goToGamePage()">
+                <input type="button" class="menuBtn" value="ABOUT">
+            </div>
+        </div>
+    </body>
+</html>

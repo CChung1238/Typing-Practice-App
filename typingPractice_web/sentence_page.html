@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Online Typing Practice</title>
+        <style>
+            @import url(selectMenu.css);
+            @import url(gameDisplayStyle.css);
+        </style>
+
+        <script src="sentencePractice.js">
+        </script>
+    </head>
+    <body>
+        <div class="pageTitle">Sentence Practice</div>
+        <div class="wrapper">
+            <div class="btnContainerForGame">
+                <input type="button" class="exitBtn" value="X" onclick="backToMain()">
+            </div>
+
+            <div class="gamePanel">
+                <div class="markTypo" id="typo" placeholder="\u00A0">
+                    ㅤ
+                </div>
+                <div class="givenStcContainer" id="sampleText">
+                    sample text
+                </div>
+                <div class="userStcContainer">
+                    <textarea id="userInput" autocomplete="off"></textarea>
+                </div>
+            </div>
+
+            <div class="resultPanel">
+                <div class="resultContainer">
+                    <label>
+                        Fastest:ㅤ
+                    </label>
+                    <label id="fastestSpd">
+                        0 wpm
+                    </label>
+                </div>
+
+                <div class="resultContainer">
+                    <label>
+                        Prev Spd:ㅤ
+                    </label>
+                    <label id="prevSpd">
+                        0 wpm
+                    </label>
+                </div>
+
+                <div class="resultContainer">
+                    <label>
+                        Current Spd:ㅤ
+                    </label>
+                    <label id="currSpd">
+                        0 wpm
+                    </label>
+                </div>
+
+                <div class="resultContainer">
+                    <label>
+                        Precisie:ㅤ
+                    </label>
+                    <label id="precisie">
+                        100 %
+                    </label>
+                </div>
+                
+                
+            </div>
+        </div>
+    </body>
+</html>

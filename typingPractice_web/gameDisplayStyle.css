@@ -1,0 +1,62 @@
+.btnContainerForGame {
+    width: 60%;
+    height: 10%;
+    align-items: end;
+}
+
+.gamePanel {
+    border: 1px solid white;
+    width: 60%;
+    height: 40%;
+}
+
+.resultPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    width: 60%;
+    height: 10%;
+    margin: 0 auto;
+}
+
+.resultContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    padding: 1%;
+    width: 35%;
+}
+
+.givenStcContainer {
+    margin-left: 1%;
+    margin-right: 1%;
+    font-size: 2em;
+    pointer-events: none;
+}
+
+.markTypo {
+    margin-top: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-size: 2em;
+    pointer-events: none;
+    color: red;
+}
+
+.userStcContainer {
+    margin-bottom: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+}
+
+#userInput {
+    width: 99%;
+    font-size: 2em;
+    background-color: black;
+    color: gray;
+    caret-color: red; 
+}

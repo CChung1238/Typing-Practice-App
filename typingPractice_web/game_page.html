@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Online Typing Practice</title>
+        <style>
+            @import url(selectMenu.css);
+        </style>
+
+        <script>
+            function backToMain() {
+                window.location.href = "mainpage.html";
+            }
+        </script>
+
+    </head>
+    <body>
+        <div class="pageTitle">Area War</div>
+        <div class="wrapper">
+            <div class="btnContainer">
+                <input type="button" class="exitBtn" value="X" onclick="backToMain()">
+            </div>
+            
+            <div class="menuContainer">
+                <input type="button" class="menuBtn" value="LEVEL 1">
+                <input type="button" class="menuBtn" value="LEVEL 2">
+                <input type="button" class="menuBtn" value="LEVEL 3">
+                <input type="button" class="menuBtn" value="LEVEL 4">
+                <input type="button" class="menuBtn" value="LEVEL 5">
+                <input type="button" class="menuBtn" value="LEVEL 6">
+                <input type="button" class="menuBtn" value="LEVEL 7">
+            </div>
+
+            <div class ="game-rule">
+                Area War is an typing game where you face off against the computer on a 5x5 grid. Type words quickly and accurately to turn squares <span style="color: royalblue;">blue</span> before the computer turns them <span style="color: red;">red</span>. <br><br>
+                You can revert red squares to black by typing the words on them, but beware—the computer might reclaim your blue squares in the process! Good luck!
+            </div>
+        </div>
+
+    </body>
+</html>
